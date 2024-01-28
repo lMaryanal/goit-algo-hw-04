@@ -7,8 +7,8 @@ def total_salary(path):  #повертає загальну та середню 
             salary = re.findall(pattern, salary_file.read())  #створює список з зарплат
             total_amount = 0
             for number in salary:   #повертає загальну суму
-                total_amount += float(number)
-            average_salary = total_amount/len(salary)
+                total_amount += int(number)
+            average_salary = int(total_amount/len(salary))
 
             return(total_amount, average_salary)
         
@@ -20,6 +20,6 @@ def total_salary(path):  #повертає загальну та середню 
         print(f"Сталася невідома помилка: {e}")
        
 
-#total_salary("F:\Repository\goit-algo-hw-04\salary_file.txt")
+#total_salary(r"F:\Repository\goit-algo-hw-04\salary_file.txt")
 total, average = total_salary("salary_file.txt")
-print(f"Загальна сума заробітної плати: {int(total)}, Середня заробітна плата: {int(average)}")
+print(f"Загальна сума заробітної плати: {total}, Середня заробітна плата: {average}")

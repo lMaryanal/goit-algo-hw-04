@@ -17,7 +17,10 @@ def change_contact(args, contacts):
 
 def show_phone(args, contacts):
     name = args[0]
-    return f"{name}: {contacts[name]} "
+    if name in contacts:
+        return f"{name}: {contacts[name]} "
+    else:
+        return("contact does not exist")
 
 def show_all(contacts):
     all = []
@@ -45,13 +48,13 @@ def main():
                 print ("contact list is empty.")
             for contact in show_all(contacts):
                 print(contact)
+        elif len(args) == 1 and command == "phone":
+            print(show_phone(args, contacts)) 
         elif len(args) == 2:      
             if command == "add":
                 print(add_contact(args, contacts))
             elif command == "change":
-                print(change_contact(args, contacts))
-            elif command == "phone":
-                print(show_phone(args, contacts))  
+                print(change_contact(args, contacts)) 
         else:
             print("Invalid command.")
 
